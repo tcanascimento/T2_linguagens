@@ -19,9 +19,81 @@ class T2ParsingTest {
 	ParseHelper<Model> parseHelper
 	
 	@Test
-	def void loadModel() {
+	def void validaNumeroSozinho() {
 		val result = parseHelper.parse('''
 			10
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoSoma() {
+		val result = parseHelper.parse('''
+			(+ 10 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoSubtracao() {
+		val result = parseHelper.parse('''
+			(- 99 10)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoMultiplicacao() {
+		val result = parseHelper.parse('''
+			(* 11 10)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoDivisao() {
+		val result = parseHelper.parse('''
+			(/ 10 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoMenorQue() {
+		val result = parseHelper.parse('''
+			(< 10 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoMenorIgualQue() {
+		val result = parseHelper.parse('''
+			(<= 10 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoMaiorQue() {
+		val result = parseHelper.parse('''
+			(> 10 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaExpressaoMaiorIgualQue() {
+		val result = parseHelper.parse('''
+			(>= 10 20)
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)

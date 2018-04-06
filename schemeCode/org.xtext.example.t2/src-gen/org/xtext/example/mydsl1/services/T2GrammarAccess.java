@@ -6,9 +6,12 @@ package org.xtext.example.mydsl1.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
+import org.eclipse.xtext.Group;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
@@ -34,33 +37,109 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		//VAR
 		public RuleCall getVarsVARParserRuleCall_0() { return cVarsVARParserRuleCall_0; }
 	}
-	public class VARElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.VAR");
-		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+	public class OpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Op");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cPlusSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cSolidusKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cAsteriskKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cLessThanSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cGreaterThanSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cLessThanSignEqualsSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cEqualsSignKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
 		
-		//VAR:
-		//	INT;
+		//Op:
+		//	'-' | '+' | '/' | '*' | '<' | '>' | '>=' | '<=' | '=';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT
-		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
+		//'-' | '+' | '/' | '*' | '<' | '>' | '>=' | '<=' | '='
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_1() { return cPlusSignKeyword_1; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_2() { return cSolidusKeyword_2; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_3() { return cAsteriskKeyword_3; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_4() { return cLessThanSignKeyword_4; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_5() { return cGreaterThanSignKeyword_5; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_6() { return cGreaterThanSignEqualsSignKeyword_6; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_7() { return cLessThanSignEqualsSignKeyword_7; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_8() { return cEqualsSignKeyword_8; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Value");
-		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cOpParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final RuleCall cINTTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
 		//Value:
-		//	INT;
+		//	INT | '(' Op INT INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
+		//INT | '(' Op INT INT ')'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//INT
-		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		
+		//'(' Op INT INT ')'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		
+		//Op
+		public RuleCall getOpParserRuleCall_1_1() { return cOpParserRuleCall_1_1; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1_2() { return cINTTerminalRuleCall_1_2; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1_3() { return cINTTerminalRuleCall_1_3; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
+	}
+	public class VARElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.VAR");
+		private final RuleCall cValueParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//VAR:
+		//	Value;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Value
+		public RuleCall getValueParserRuleCall() { return cValueParserRuleCall; }
 	}
 	
 	
 	private final ModelElements pModel;
-	private final VARElements pVAR;
+	private final OpElements pOp;
 	private final ValueElements pValue;
+	private final VARElements pVAR;
 	
 	private final Grammar grammar;
 	
@@ -72,8 +151,9 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pVAR = new VARElements();
+		this.pOp = new OpElements();
 		this.pValue = new ValueElements();
+		this.pVAR = new VARElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -113,24 +193,34 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//VAR:
-	//	INT;
-	public VARElements getVARAccess() {
-		return pVAR;
+	//Op:
+	//	'-' | '+' | '/' | '*' | '<' | '>' | '>=' | '<=' | '=';
+	public OpElements getOpAccess() {
+		return pOp;
 	}
 	
-	public ParserRule getVARRule() {
-		return getVARAccess().getRule();
+	public ParserRule getOpRule() {
+		return getOpAccess().getRule();
 	}
 	
 	//Value:
-	//	INT;
+	//	INT | '(' Op INT INT ')';
 	public ValueElements getValueAccess() {
 		return pValue;
 	}
 	
 	public ParserRule getValueRule() {
 		return getValueAccess().getRule();
+	}
+	
+	//VAR:
+	//	Value;
+	public VARElements getVARAccess() {
+		return pVAR;
+	}
+	
+	public ParserRule getVARRule() {
+		return getVARAccess().getRule();
 	}
 	
 	//terminal ID:

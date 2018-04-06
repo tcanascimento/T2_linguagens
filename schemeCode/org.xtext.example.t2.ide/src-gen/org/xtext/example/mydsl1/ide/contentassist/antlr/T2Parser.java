@@ -31,6 +31,9 @@ public class T2Parser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getOpAccess().getAlternatives(), "rule__Op__Alternatives");
+					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
+					put(grammarAccess.getValueAccess().getGroup_1(), "rule__Value__Group_1__0");
 					put(grammarAccess.getModelAccess().getVarsAssignment(), "rule__Model__VarsAssignment");
 				}
 			};

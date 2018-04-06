@@ -23,10 +23,122 @@ public class T2ParsingTest {
   private ParseHelper<Model> parseHelper;
   
   @Test
-  public void loadModel() {
+  public void validaNumeroSozinho() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("10");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoSoma() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(+ 10 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoSubtracao() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(- 99 10)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoMultiplicacao() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(* 11 10)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoDivisao() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(/ 10 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoMenorQue() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(< 10 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoMenorIgualQue() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(<= 10 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoMaiorQue() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(> 10 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaExpressaoMaiorIgualQue() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(>= 10 20)");
       _builder.newLine();
       final Model result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);

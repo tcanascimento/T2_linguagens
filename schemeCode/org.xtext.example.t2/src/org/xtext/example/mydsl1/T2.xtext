@@ -4,11 +4,13 @@ generate t2 "http://www.xtext.org/example/mydsl1/T2"
 
 Model:
 	vars+=VAR*;
+	
+Op:
+	'-' | '+' | '/' | '*' | '<' | '>'  | '>=' | '<=' | '='
+;
+Value:
+	INT | '(' Op INT INT')';
 
 VAR:
-	INT
+	Value
 ;
-	
-Value:
-	INT;
-	
