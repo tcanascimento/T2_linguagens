@@ -98,4 +98,23 @@ class T2ParsingTest {
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
+	
+	@Test
+	def void validaDefinicao() {
+		val result = parseHelper.parse('''
+			(define a 10)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaDefinicaoComposta() {
+		val result = parseHelper.parse('''
+			(define a (+ a 50))
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
 }

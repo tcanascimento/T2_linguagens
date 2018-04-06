@@ -32,8 +32,11 @@ public class T2Parser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getOpAccess().getAlternatives(), "rule__Op__Alternatives");
+					put(grammarAccess.getComplementoAccess().getAlternatives(), "rule__Complemento__Alternatives");
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
-					put(grammarAccess.getValueAccess().getGroup_1(), "rule__Value__Group_1__0");
+					put(grammarAccess.getDefineAccess().getGroup(), "rule__Define__Group__0");
+					put(grammarAccess.getComplementoAccess().getGroup_1(), "rule__Complemento__Group_1__0");
+					put(grammarAccess.getComplementoAccess().getGroup_2(), "rule__Complemento__Group_2__0");
 					put(grammarAccess.getModelAccess().getVarsAssignment(), "rule__Model__VarsAssignment");
 				}
 			};

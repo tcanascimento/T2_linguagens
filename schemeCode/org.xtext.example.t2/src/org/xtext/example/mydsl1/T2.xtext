@@ -8,9 +8,19 @@ Model:
 Op:
 	'-' | '+' | '/' | '*' | '<' | '>'  | '>=' | '<=' | '='
 ;
-Value:
-	INT | '(' Op INT INT')';
+
+Define:
+	'(''define' ID Complemento')'
+;
+
+Complemento:
+	INT | '(' Op INT*')' | '(' Op ID INT')' 
+;
+
+Value: 
+	Define | Complemento
+;
 
 VAR:
-	Value
+	Value 
 ;

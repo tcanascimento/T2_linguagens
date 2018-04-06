@@ -84,28 +84,66 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_8() { return cEqualsSignKeyword_8; }
 	}
-	public class ValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Value");
+	public class DefineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Define");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cDefineKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cComplementoParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Define:
+		//	'(' 'define' ID Complemento ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' 'define' ID Complemento ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//'define'
+		public Keyword getDefineKeyword_1() { return cDefineKeyword_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2() { return cIDTerminalRuleCall_2; }
+		
+		//Complemento
+		public RuleCall getComplementoParserRuleCall_3() { return cComplementoParserRuleCall_3; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
+	public class ComplementoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Complemento");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cOpParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		private final RuleCall cINTTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cOpParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final RuleCall cINTTerminalRuleCall_2_3 = (RuleCall)cGroup_2.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		
-		//Value:
-		//	INT | '(' Op INT INT ')';
+		//Complemento:
+		//	INT | '(' Op INT* ')' | '(' Op ID INT ')'
+		//	//'(' Define ID INT ')' | '(' Define ID Name ')'  
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT | '(' Op INT INT ')'
+		//INT | '(' Op INT* ')' | '(' Op ID INT ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//INT
 		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
 		
-		//'(' Op INT INT ')'
+		//'(' Op INT* ')'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'('
@@ -114,14 +152,48 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		//Op
 		public RuleCall getOpParserRuleCall_1_1() { return cOpParserRuleCall_1_1; }
 		
-		//INT
+		//INT*
 		public RuleCall getINTTerminalRuleCall_1_2() { return cINTTerminalRuleCall_1_2; }
 		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+		
+		//'(' Op ID INT ')'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//Op
+		public RuleCall getOpParserRuleCall_2_1() { return cOpParserRuleCall_2_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_2() { return cIDTerminalRuleCall_2_2; }
+		
 		//INT
-		public RuleCall getINTTerminalRuleCall_1_3() { return cINTTerminalRuleCall_1_3; }
+		public RuleCall getINTTerminalRuleCall_2_3() { return cINTTerminalRuleCall_2_3; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
+		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
+	}
+	public class ValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Value");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDefineParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cComplementoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Value:
+		//	Define | Complemento;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Define | Complemento
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Define
+		public RuleCall getDefineParserRuleCall_0() { return cDefineParserRuleCall_0; }
+		
+		//Complemento
+		public RuleCall getComplementoParserRuleCall_1() { return cComplementoParserRuleCall_1; }
 	}
 	public class VARElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.VAR");
@@ -138,6 +210,8 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final OpElements pOp;
+	private final DefineElements pDefine;
+	private final ComplementoElements pComplemento;
 	private final ValueElements pValue;
 	private final VARElements pVAR;
 	
@@ -152,6 +226,8 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pOp = new OpElements();
+		this.pDefine = new DefineElements();
+		this.pComplemento = new ComplementoElements();
 		this.pValue = new ValueElements();
 		this.pVAR = new VARElements();
 	}
@@ -203,8 +279,30 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		return getOpAccess().getRule();
 	}
 	
+	//Define:
+	//	'(' 'define' ID Complemento ')';
+	public DefineElements getDefineAccess() {
+		return pDefine;
+	}
+	
+	public ParserRule getDefineRule() {
+		return getDefineAccess().getRule();
+	}
+	
+	//Complemento:
+	//	INT | '(' Op INT* ')' | '(' Op ID INT ')'
+	//	//'(' Define ID INT ')' | '(' Define ID Name ')'  
+	//;
+	public ComplementoElements getComplementoAccess() {
+		return pComplemento;
+	}
+	
+	public ParserRule getComplementoRule() {
+		return getComplementoAccess().getRule();
+	}
+	
 	//Value:
-	//	INT | '(' Op INT INT ')';
+	//	Define | Complemento;
 	public ValueElements getValueAccess() {
 		return pValue;
 	}
