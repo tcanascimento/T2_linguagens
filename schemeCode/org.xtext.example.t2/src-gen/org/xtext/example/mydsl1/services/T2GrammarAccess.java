@@ -132,9 +132,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		
 		//Complemento:
-		//	INT | '(' Op INT* ')' | '(' Op ID INT ')'
-		//	//'(' Define ID INT ')' | '(' Define ID Name ')'  
-		//;
+		//	INT | '(' Op INT* ')' | '(' Op ID INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//INT | '(' Op INT* ')' | '(' Op ID INT ')'
@@ -181,12 +179,15 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDefineParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cComplementoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final RuleCall cOpParserRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final RuleCall cComplementoParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
 		//Value:
-		//	Define | Complemento;
+		//	Define | Complemento | Op Complemento;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Define | Complemento
+		//Define | Complemento | Op Complemento
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Define
@@ -194,6 +195,15 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Complemento
 		public RuleCall getComplementoParserRuleCall_1() { return cComplementoParserRuleCall_1; }
+		
+		//Op Complemento
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//Op
+		public RuleCall getOpParserRuleCall_2_0() { return cOpParserRuleCall_2_0; }
+		
+		//Complemento
+		public RuleCall getComplementoParserRuleCall_2_1() { return cComplementoParserRuleCall_2_1; }
 	}
 	public class VARElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.VAR");
@@ -290,9 +300,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Complemento:
-	//	INT | '(' Op INT* ')' | '(' Op ID INT ')'
-	//	//'(' Define ID INT ')' | '(' Define ID Name ')'  
-	//;
+	//	INT | '(' Op INT* ')' | '(' Op ID INT ')';
 	public ComplementoElements getComplementoAccess() {
 		return pComplemento;
 	}
@@ -302,7 +310,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Value:
-	//	Define | Complemento;
+	//	Define | Complemento | Op Complemento;
 	public ValueElements getValueAccess() {
 		return pValue;
 	}

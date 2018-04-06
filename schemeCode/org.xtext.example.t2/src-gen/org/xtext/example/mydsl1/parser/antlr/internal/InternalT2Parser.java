@@ -140,7 +140,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==RULE_INT||LA1_0==20) ) {
+                if ( (LA1_0==RULE_INT||(LA1_0>=11 && LA1_0<=20)) ) {
                     alt1=1;
                 }
 
@@ -691,7 +691,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
                     // InternalT2.g:278:3: (kw= '(' this_Op_6= ruleOp this_ID_7= RULE_ID this_INT_8= RULE_INT kw= ')' )
                     // InternalT2.g:279:4: kw= '(' this_Op_6= ruleOp this_ID_7= RULE_ID this_INT_8= RULE_INT kw= ')'
                     {
-                    kw=(Token)match(input,20,FOLLOW_8); 
+                    kw=(Token)match(input,20,FOLLOW_10); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getComplementoAccess().getLeftParenthesisKeyword_2_0());
@@ -710,7 +710,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
                     				afterParserOrEnumRuleCall();
                     			
-                    this_ID_7=(Token)match(input,RULE_ID,FOLLOW_10); 
+                    this_ID_7=(Token)match(input,RULE_ID,FOLLOW_11); 
 
                     				current.merge(this_ID_7);
                     			
@@ -794,7 +794,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValue"
-    // InternalT2.g:325:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento ) ;
+    // InternalT2.g:325:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) ) ;
     public final AntlrDatatypeRuleToken ruleValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -802,19 +802,23 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
         AntlrDatatypeRuleToken this_Complemento_1 = null;
 
+        AntlrDatatypeRuleToken this_Op_2 = null;
+
+        AntlrDatatypeRuleToken this_Complemento_3 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalT2.g:331:2: ( (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento ) )
-            // InternalT2.g:332:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento )
+            // InternalT2.g:331:2: ( (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) ) )
+            // InternalT2.g:332:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) )
             {
-            // InternalT2.g:332:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
-
-            if ( (LA5_0==20) ) {
+            // InternalT2.g:332:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) )
+            int alt5=3;
+            switch ( input.LA(1) ) {
+            case 20:
+                {
                 int LA5_1 = input.LA(2);
 
                 if ( (LA5_1==21) ) {
@@ -829,16 +833,33 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
                     throw nvae;
                 }
-            }
-            else if ( (LA5_0==RULE_INT) ) {
+                }
+                break;
+            case RULE_INT:
+                {
                 alt5=2;
-            }
-            else {
+                }
+                break;
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+                {
+                alt5=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
+
             switch (alt5) {
                 case 1 :
                     // InternalT2.g:333:3: this_Define_0= ruleDefine
@@ -880,6 +901,46 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 3 :
+                    // InternalT2.g:355:3: (this_Op_2= ruleOp this_Complemento_3= ruleComplemento )
+                    {
+                    // InternalT2.g:355:3: (this_Op_2= ruleOp this_Complemento_3= ruleComplemento )
+                    // InternalT2.g:356:4: this_Op_2= ruleOp this_Complemento_3= ruleComplemento
+                    {
+
+                    				newCompositeNode(grammarAccess.getValueAccess().getOpParserRuleCall_2_0());
+                    			
+                    pushFollow(FOLLOW_6);
+                    this_Op_2=ruleOp();
+
+                    state._fsp--;
+
+
+                    				current.merge(this_Op_2);
+                    			
+
+                    				afterParserOrEnumRuleCall();
+                    			
+
+                    				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_2_1());
+                    			
+                    pushFollow(FOLLOW_2);
+                    this_Complemento_3=ruleComplemento();
+
+                    state._fsp--;
+
+
+                    				current.merge(this_Complemento_3);
+                    			
+
+                    				afterParserOrEnumRuleCall();
+                    			
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -903,7 +964,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVAR"
-    // InternalT2.g:358:1: entryRuleVAR returns [String current=null] : iv_ruleVAR= ruleVAR EOF ;
+    // InternalT2.g:381:1: entryRuleVAR returns [String current=null] : iv_ruleVAR= ruleVAR EOF ;
     public final String entryRuleVAR() throws RecognitionException {
         String current = null;
 
@@ -911,8 +972,8 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalT2.g:358:43: (iv_ruleVAR= ruleVAR EOF )
-            // InternalT2.g:359:2: iv_ruleVAR= ruleVAR EOF
+            // InternalT2.g:381:43: (iv_ruleVAR= ruleVAR EOF )
+            // InternalT2.g:382:2: iv_ruleVAR= ruleVAR EOF
             {
              newCompositeNode(grammarAccess.getVARRule()); 
             pushFollow(FOLLOW_1);
@@ -939,7 +1000,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVAR"
-    // InternalT2.g:365:1: ruleVAR returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_Value_0= ruleValue ;
+    // InternalT2.g:388:1: ruleVAR returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_Value_0= ruleValue ;
     public final AntlrDatatypeRuleToken ruleVAR() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -950,8 +1011,8 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalT2.g:371:2: (this_Value_0= ruleValue )
-            // InternalT2.g:372:2: this_Value_0= ruleValue
+            // InternalT2.g:394:2: (this_Value_0= ruleValue )
+            // InternalT2.g:395:2: this_Value_0= ruleValue
             {
 
             		newCompositeNode(grammarAccess.getVARAccess().getValueParserRuleCall());
@@ -1039,13 +1100,14 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000100022L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000001FF822L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000500020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000100020L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000000FF800L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000005FF820L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000400020L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000001FF830L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000020L});
 
 }

@@ -18,7 +18,7 @@ Complemento:
 ;
 
 Value: 
-	Define | Complemento
+	Define | Complemento | Op Complemento
 ;
 
 VAR:

@@ -28,6 +28,16 @@ class T2ParsingTest {
 	}
 	
 	@Test
+	def void validaExpressaoSemParenteses() {
+		val result = parseHelper.parse('''
+			+10
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	
+	@Test
 	def void validaExpressaoSoma() {
 		val result = parseHelper.parse('''
 			(+ 10 20)

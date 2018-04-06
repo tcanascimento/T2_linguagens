@@ -37,6 +37,20 @@ public class T2ParsingTest {
   }
   
   @Test
+  public void validaExpressaoSemParenteses() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("+10");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void validaExpressaoSoma() {
     try {
       StringConcatenation _builder = new StringConcatenation();

@@ -37,6 +37,7 @@ public class T2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineAccess().getGroup(), "rule__Define__Group__0");
 					put(grammarAccess.getComplementoAccess().getGroup_1(), "rule__Complemento__Group_1__0");
 					put(grammarAccess.getComplementoAccess().getGroup_2(), "rule__Complemento__Group_2__0");
+					put(grammarAccess.getValueAccess().getGroup_2(), "rule__Value__Group_2__0");
 					put(grammarAccess.getModelAccess().getVarsAssignment(), "rule__Model__VarsAssignment");
 				}
 			};
