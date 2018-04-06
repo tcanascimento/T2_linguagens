@@ -1,0 +1,9 @@
+grammar org.xtext.example.mydsl1.T2 with org.eclipse.xtext.common.Terminals
+
+generate t2 "http://www.xtext.org/example/mydsl1/T2"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
