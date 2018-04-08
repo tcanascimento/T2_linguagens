@@ -19,6 +19,24 @@ class T2ParsingTest {
 	ParseHelper<Model> parseHelper
 	
 	@Test
+	def void validaPrefixoPrint() {
+		val result = parseHelper.parse('''
+			print 'oi'
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaPrefixoPrint2() {
+		val result = parseHelper.parse('''
+			(print 'oi')
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
 	def void validaNumeroSozinho() {
 		val result = parseHelper.parse('''
 			10
@@ -28,9 +46,27 @@ class T2ParsingTest {
 	}
 	
 	@Test
+	def void validaExpressaoSemParentesesComposta() {
+		val result = parseHelper.parse('''
+			+10(* 11 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
 	def void validaExpressaoSemParenteses() {
 		val result = parseHelper.parse('''
-			+10
+			* 11 20)
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertFalse(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaOperacaoSemParenteses() {
+		val result = parseHelper.parse('''
+			* 11 20 129 12 19
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)

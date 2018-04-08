@@ -9,12 +9,16 @@ Op:
 	'-' | '+' | '/' | '*' | '<' | '>'  | '>=' | '<=' | '='
 ;
 
+Prefix:
+	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro'
+;
+
 Define:
-	'(''define' ID Complemento')'
+	'('Prefix ID Complemento')'
 ;
 
 Complemento:
-	INT | '(' Op INT*')' | '(' Op ID INT')' 
+	INT | '(' Op INT*')' | '(' Op ID INT')' | '(' Prefix STRING ')'| Prefix STRING
 ;
 
 Value: 

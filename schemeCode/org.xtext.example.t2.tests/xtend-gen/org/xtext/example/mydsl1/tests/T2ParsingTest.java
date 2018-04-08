@@ -23,6 +23,34 @@ public class T2ParsingTest {
   private ParseHelper<Model> parseHelper;
   
   @Test
+  public void validaPrefixoPrint() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("print \'oi\'");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaPrefixoPrint2() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \'oi\')");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void validaNumeroSozinho() {
     try {
       StringConcatenation _builder = new StringConcatenation();
@@ -37,10 +65,38 @@ public class T2ParsingTest {
   }
   
   @Test
+  public void validaExpressaoSemParentesesComposta() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("+10(* 11 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void validaExpressaoSemParenteses() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("+10");
+      _builder.append("* 11 20)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertFalse(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaOperacaoSemParenteses() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("* 11 20 129 12 19");
       _builder.newLine();
       final Model result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
