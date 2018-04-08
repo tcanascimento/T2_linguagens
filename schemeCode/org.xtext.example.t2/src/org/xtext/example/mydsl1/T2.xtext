@@ -9,8 +9,14 @@ Op:
 	'-' | '+' | '/' | '*' | '<' | '>'  | '>=' | '<=' | '='
 ;
 
+
+
 Prefix:
-	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro'
+	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read'
+;
+
+Compose:
+	Prefix | '(' Prefix ')'
 ;
 
 Define:
@@ -18,7 +24,7 @@ Define:
 ;
 
 Complemento:
-	INT | '(' Op INT*')' | '(' Op ID INT')' | '(' Prefix STRING ')'| Prefix STRING
+	INT | '(' Op INT*')' | '(' Op ID INT')' | '(' Prefix STRING ')'| Prefix STRING | '(' Prefix STRING Compose STRING ')'
 ;
 
 Value: 

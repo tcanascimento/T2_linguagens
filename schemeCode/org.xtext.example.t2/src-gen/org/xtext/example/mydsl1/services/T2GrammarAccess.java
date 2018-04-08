@@ -93,12 +93,13 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPrintKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cLambdaKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		private final Keyword cDefineMacroKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cReadKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		
 		//Prefix:
-		//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro';
+		//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro'
+		//'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'define'
@@ -118,6 +119,40 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'define-macro'
 		public Keyword getDefineMacroKeyword_5() { return cDefineMacroKeyword_5; }
+		
+		//'read'
+		public Keyword getReadKeyword_6() { return cReadKeyword_6; }
+	}
+	public class ComposeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Compose");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPrefixParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cPrefixParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		
+		//Compose:
+		//	Prefix | '(' Prefix ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Prefix | '(' Prefix ')'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Prefix
+		public RuleCall getPrefixParserRuleCall_0() { return cPrefixParserRuleCall_0; }
+		
+		//'(' Prefix ')'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		
+		//Prefix
+		public RuleCall getPrefixParserRuleCall_1_1() { return cPrefixParserRuleCall_1_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
 	}
 	public class DefineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Define");
@@ -173,12 +208,20 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
 		private final RuleCall cPrefixParserRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
 		private final RuleCall cSTRINGTerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Keyword cLeftParenthesisKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final RuleCall cPrefixParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall_5_2 = (RuleCall)cGroup_5.eContents().get(2);
+		private final RuleCall cComposeParserRuleCall_5_3 = (RuleCall)cGroup_5.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_5_4 = (RuleCall)cGroup_5.eContents().get(4);
+		private final Keyword cRightParenthesisKeyword_5_5 = (Keyword)cGroup_5.eContents().get(5);
 		
 		//Complemento:
-		//	INT | '(' Op INT* ')' | '(' Op ID INT ')' | '(' Prefix STRING ')' | Prefix STRING;
+		//	INT | '(' Op INT* ')' | '(' Op ID INT ')' | '(' Prefix STRING ')' | Prefix STRING | '(' Prefix STRING Compose STRING
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT | '(' Op INT* ')' | '(' Op ID INT ')' | '(' Prefix STRING ')' | Prefix STRING
+		//INT | '(' Op INT* ')' | '(' Op ID INT ')' | '(' Prefix STRING ')' | Prefix STRING | '(' Prefix STRING Compose STRING ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//INT
@@ -240,6 +283,27 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_4_1() { return cSTRINGTerminalRuleCall_4_1; }
+		
+		//'(' Prefix STRING Compose STRING ')'
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_5_0() { return cLeftParenthesisKeyword_5_0; }
+		
+		//Prefix
+		public RuleCall getPrefixParserRuleCall_5_1() { return cPrefixParserRuleCall_5_1; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_5_2() { return cSTRINGTerminalRuleCall_5_2; }
+		
+		//Compose
+		public RuleCall getComposeParserRuleCall_5_3() { return cComposeParserRuleCall_5_3; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_5_4() { return cSTRINGTerminalRuleCall_5_4; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5_5() { return cRightParenthesisKeyword_5_5; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Value");
@@ -288,6 +352,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final OpElements pOp;
 	private final PrefixElements pPrefix;
+	private final ComposeElements pCompose;
 	private final DefineElements pDefine;
 	private final ComplementoElements pComplemento;
 	private final ValueElements pValue;
@@ -305,6 +370,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pOp = new OpElements();
 		this.pPrefix = new PrefixElements();
+		this.pCompose = new ComposeElements();
 		this.pDefine = new DefineElements();
 		this.pComplemento = new ComplementoElements();
 		this.pValue = new ValueElements();
@@ -359,13 +425,23 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Prefix:
-	//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro';
+	//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read';
 	public PrefixElements getPrefixAccess() {
 		return pPrefix;
 	}
 	
 	public ParserRule getPrefixRule() {
 		return getPrefixAccess().getRule();
+	}
+	
+	//Compose:
+	//	Prefix | '(' Prefix ')';
+	public ComposeElements getComposeAccess() {
+		return pCompose;
+	}
+	
+	public ParserRule getComposeRule() {
+		return getComposeAccess().getRule();
 	}
 	
 	//Define:
@@ -379,7 +455,8 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Complemento:
-	//	INT | '(' Op INT* ')' | '(' Op ID INT ')' | '(' Prefix STRING ')' | Prefix STRING;
+	//	INT | '(' Op INT* ')' | '(' Op ID INT ')' | '(' Prefix STRING ')' | Prefix STRING | '(' Prefix STRING Compose STRING
+	//	')';
 	public ComplementoElements getComplementoAccess() {
 		return pComplemento;
 	}

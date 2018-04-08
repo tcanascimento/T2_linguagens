@@ -19,6 +19,15 @@ class T2ParsingTest {
 	ParseHelper<Model> parseHelper
 	
 	@Test
+	def void validaPrefixoCompostot() {
+		val result = parseHelper.parse('''
+			(print "Hello, " (read) "!")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
 	def void validaPrefixoPrint() {
 		val result = parseHelper.parse('''
 			print 'oi'
@@ -30,7 +39,7 @@ class T2ParsingTest {
 	@Test
 	def void validaPrefixoPrint2() {
 		val result = parseHelper.parse('''
-			(print 'oi')
+			(print "What's your name?")
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
