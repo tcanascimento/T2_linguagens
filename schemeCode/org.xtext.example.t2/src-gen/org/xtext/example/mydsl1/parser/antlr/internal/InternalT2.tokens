@@ -1,5 +1,5 @@
-'('=27
-')'=28
+'('=28
+')'=29
 '*'=14
 '+'=12
 '-'=11
@@ -9,13 +9,14 @@
 '='=19
 '>'=16
 '>='=17
-'define'=20
-'define-macro'=25
-'display'=22
-'lambda'=24
-'print'=23
-'read'=26
-'set!'=21
+'define'=21
+'define-macro'=26
+'display'=23
+'if'=20
+'lambda'=25
+'print'=24
+'read'=27
+'set!'=22
 RULE_ANY_OTHER=10
 RULE_ID=4
 RULE_INT=5
@@ -41,3 +42,4 @@ T__25=25
 T__26=26
 T__27=27
 T__28=28
+T__29=29

@@ -168,6 +168,50 @@ ruleOp returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	)
 ;
 
+// Entry rule entryRuleCondicional
+entryRuleCondicional returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getCondicionalRule()); }
+	iv_ruleCondicional=ruleCondicional
+	{ $current=$iv_ruleCondicional.current.getText(); }
+	EOF;
+
+// Rule Condicional
+ruleCondicional returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='if'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getCondicionalAccess().getIfKeyword_0());
+		}
+		{
+			newCompositeNode(grammarAccess.getCondicionalAccess().getComplementoParserRuleCall_1());
+		}
+		this_Complemento_1=ruleComplemento
+		{
+			$current.merge(this_Complemento_1);
+		}
+		{
+			afterParserOrEnumRuleCall();
+		}
+		{
+			newCompositeNode(grammarAccess.getCondicionalAccess().getComplementoParserRuleCall_2());
+		}
+		this_Complemento_2=ruleComplemento
+		{
+			$current.merge(this_Complemento_2);
+		}
+		{
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
 // Entry rule entryRulePrefix
 entryRulePrefix returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getPrefixRule()); }
@@ -588,6 +632,17 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				afterParserOrEnumRuleCall();
 			}
 		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getValueAccess().getCondicionalParserRuleCall_3());
+		}
+		this_Condicional_4=ruleCondicional
+		{
+			$current.merge(this_Condicional_4);
+		}
+		{
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 

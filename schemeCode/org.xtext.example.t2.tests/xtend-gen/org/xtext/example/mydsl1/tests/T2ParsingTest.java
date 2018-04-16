@@ -23,6 +23,34 @@ public class T2ParsingTest {
   private ParseHelper<Model> parseHelper;
   
   @Test
+  public void validaCondicionalIf() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \"if < 1 10 \'ok\' \'nok\'\")");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaCondicionalIfElse() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \"(if (> 1 10) \'ok\' \'nok\')\")");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void validaPrefixoCompostot() {
     try {
       StringConcatenation _builder = new StringConcatenation();

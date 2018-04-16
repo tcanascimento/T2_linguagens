@@ -9,10 +9,12 @@ Op:
 	'-' | '+' | '/' | '*' | '<' | '>'  | '>=' | '<=' | '='
 ;
 
-
+Condicional:
+	'if' 
+;
 
 Prefix:
-	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read'
+	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read' 
 ;
 
 Compose:
@@ -20,7 +22,7 @@ Compose:
 ;
 
 Define:
-	'('Prefix ID Complemento')'
+	'('Prefix ID Complemento')' 
 ;
 
 Complemento:
@@ -28,7 +30,7 @@ Complemento:
 ;
 
 Value: 
-	Define | Complemento | Op Complemento
+	Define | Complemento | Op Complemento | Condicional Complemento Complemento
 ;
 
 VAR:

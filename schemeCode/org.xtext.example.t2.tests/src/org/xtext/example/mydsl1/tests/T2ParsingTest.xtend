@@ -19,6 +19,24 @@ class T2ParsingTest {
 	ParseHelper<Model> parseHelper
 	
 	@Test
+	def void validaCondicionalIf() {
+		val result = parseHelper.parse('''
+			(print "if < 1 10 'ok' 'nok'")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaCondicionalIfElse() {
+		val result = parseHelper.parse('''
+			(print "(if (> 1 10) 'ok' 'nok')")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
 	def void validaPrefixoCompostot() {
 		val result = parseHelper.parse('''
 			(print "Hello, " (read) "!")
