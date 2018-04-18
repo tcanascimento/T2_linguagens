@@ -12,5 +12,6 @@ Fonte: Consultar fonte: ftp://ftp.cs.utexas.edu/pub/garbage/cs345/schintro-v14/s
 Outras referências:
                       https://repl.it/repls/FirstSlimyAggregator
                       https://scheme.cs61a.org/
-                      https://www.scheme.com/tspl4/intro.html#./intro:h1
+                      https://www.scheme.com/tspl4/intro.html#./intro:h1    
+                      https://www.cs.indiana.edu/scheme-repository/R4RS/r4rs_9.html
 
