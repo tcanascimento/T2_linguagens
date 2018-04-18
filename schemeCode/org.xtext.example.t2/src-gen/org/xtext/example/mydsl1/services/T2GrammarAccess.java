@@ -86,26 +86,14 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class CondicionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Condicional");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cComplementoParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cComplementoParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cIfKeyword = (Keyword)rule.eContents().get(1);
 		
 		//Condicional:
-		//	'if' Complemento Complemento;
+		//	'if';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' Complemento Complemento
-		public Group getGroup() { return cGroup; }
-		
 		//'if'
-		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
-		
-		//Complemento
-		public RuleCall getComplementoParserRuleCall_1() { return cComplementoParserRuleCall_1; }
-		
-		//Complemento
-		public RuleCall getComplementoParserRuleCall_2() { return cComplementoParserRuleCall_2; }
+		public Keyword getIfKeyword() { return cIfKeyword; }
 	}
 	public class PrefixElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Prefix");
@@ -117,12 +105,13 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLambdaKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		private final Keyword cDefineMacroKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		private final Keyword cReadKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cMapKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		
 		//Prefix:
-		//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read';
+		//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read' | 'map';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read'
+		//'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read' | 'map'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'define'
@@ -145,6 +134,9 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'read'
 		public Keyword getReadKeyword_6() { return cReadKeyword_6; }
+		
+		//'map'
+		public Keyword getMapKeyword_7() { return cMapKeyword_7; }
 	}
 	public class ComposeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Compose");
@@ -336,13 +328,16 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final RuleCall cOpParserRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final RuleCall cComplementoParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
-		private final RuleCall cCondicionalParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final RuleCall cCondicionalParserRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final RuleCall cComplementoParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final RuleCall cComplementoParserRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		
 		//Value:
-		//	Define | Complemento | Op Complemento | Condicional;
+		//	Define | Complemento | Op Complemento | Condicional Complemento Complemento;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Define | Complemento | Op Complemento | Condicional
+		//Define | Complemento | Op Complemento | Condicional Complemento Complemento
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Define
@@ -360,8 +355,17 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		//Complemento
 		public RuleCall getComplementoParserRuleCall_2_1() { return cComplementoParserRuleCall_2_1; }
 		
+		//Condicional Complemento Complemento
+		public Group getGroup_3() { return cGroup_3; }
+		
 		//Condicional
-		public RuleCall getCondicionalParserRuleCall_3() { return cCondicionalParserRuleCall_3; }
+		public RuleCall getCondicionalParserRuleCall_3_0() { return cCondicionalParserRuleCall_3_0; }
+		
+		//Complemento
+		public RuleCall getComplementoParserRuleCall_3_1() { return cComplementoParserRuleCall_3_1; }
+		
+		//Complemento
+		public RuleCall getComplementoParserRuleCall_3_2() { return cComplementoParserRuleCall_3_2; }
 	}
 	public class VARElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.VAR");
@@ -454,7 +458,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Condicional:
-	//	'if' Complemento Complemento;
+	//	'if';
 	public CondicionalElements getCondicionalAccess() {
 		return pCondicional;
 	}
@@ -464,7 +468,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Prefix:
-	//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read';
+	//	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read' | 'map';
 	public PrefixElements getPrefixAccess() {
 		return pPrefix;
 	}
@@ -505,7 +509,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Value:
-	//	Define | Complemento | Op Complemento | Condicional;
+	//	Define | Complemento | Op Complemento | Condicional Complemento Complemento;
 	public ValueElements getValueAccess() {
 		return pValue;
 	}

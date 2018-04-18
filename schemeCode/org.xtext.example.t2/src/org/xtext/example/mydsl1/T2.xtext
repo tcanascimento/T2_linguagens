@@ -14,7 +14,7 @@ Condicional:
 ;
 
 Prefix:
-	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read' 
+	'define' | 'set!' | 'display' | 'print' | 'lambda' | 'define-macro' | 'read' | 'map'
 ;
 
 Compose:

@@ -19,9 +19,59 @@ class T2ParsingTest {
 	ParseHelper<Model> parseHelper
 	
 	@Test
+	def void validaMapLambda() {
+		val result = parseHelper.parse('''
+			(print "(map (lambda (x) (* x 2)) '(1 2 3 4 5 6))")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaLambda() {
+		val result = parseHelper.parse('''
+			(print "((lambda (x) (* x x)) 3)")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaLambdaFatorial() {
+		val result = parseHelper.parse('''
+			(print "(define ! 
+			  (lambda (n) 
+			    (if (= n 0) 
+			        1  
+			        (* n (! (- n 1)))
+			     )
+			  )
+			)")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
 	def void validaCondicionalIf() {
 		val result = parseHelper.parse('''
 			(print "if < 1 10 'ok' 'nok'")
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void validaSomatorio() {
+		val result = parseHelper.parse('''
+			(print "(define sum 
+			  (lambda (f lower upper)
+			    (if (> lower upper)
+			        0
+			        (+ (f lower) (sum f (+ 1 lower) upper))
+			    )
+			  )
+			)")
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)

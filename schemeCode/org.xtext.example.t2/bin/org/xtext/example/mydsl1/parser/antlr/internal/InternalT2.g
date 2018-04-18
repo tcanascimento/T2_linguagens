@@ -183,33 +183,11 @@ ruleCondicional returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTok
 @after {
 	leaveRule();
 }:
-	(
-		kw='if'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getCondicionalAccess().getIfKeyword_0());
-		}
-		{
-			newCompositeNode(grammarAccess.getCondicionalAccess().getComplementoParserRuleCall_1());
-		}
-		this_Complemento_1=ruleComplemento
-		{
-			$current.merge(this_Complemento_1);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
-		{
-			newCompositeNode(grammarAccess.getCondicionalAccess().getComplementoParserRuleCall_2());
-		}
-		this_Complemento_2=ruleComplemento
-		{
-			$current.merge(this_Complemento_2);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
-	)
+	kw='if'
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getCondicionalAccess().getIfKeyword());
+	}
 ;
 
 // Entry rule entryRulePrefix
@@ -268,6 +246,12 @@ rulePrefix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getPrefixAccess().getReadKeyword_6());
+		}
+		    |
+		kw='map'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getPrefixAccess().getMapKeyword_7());
 		}
 	)
 ;
@@ -633,16 +617,38 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			}
 		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getValueAccess().getCondicionalParserRuleCall_3());
-		}
-		this_Condicional_4=ruleCondicional
-		{
-			$current.merge(this_Condicional_4);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
+		(
+			{
+				newCompositeNode(grammarAccess.getValueAccess().getCondicionalParserRuleCall_3_0());
+			}
+			this_Condicional_4=ruleCondicional
+			{
+				$current.merge(this_Condicional_4);
+			}
+			{
+				afterParserOrEnumRuleCall();
+			}
+			{
+				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_3_1());
+			}
+			this_Complemento_5=ruleComplemento
+			{
+				$current.merge(this_Complemento_5);
+			}
+			{
+				afterParserOrEnumRuleCall();
+			}
+			{
+				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_3_2());
+			}
+			this_Complemento_6=ruleComplemento
+			{
+				$current.merge(this_Complemento_6);
+			}
+			{
+				afterParserOrEnumRuleCall();
+			}
+		)
 	)
 ;
 

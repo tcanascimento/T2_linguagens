@@ -36,7 +36,6 @@ public class T2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getComposeAccess().getAlternatives(), "rule__Compose__Alternatives");
 					put(grammarAccess.getComplementoAccess().getAlternatives(), "rule__Complemento__Alternatives");
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
-					put(grammarAccess.getCondicionalAccess().getGroup(), "rule__Condicional__Group__0");
 					put(grammarAccess.getComposeAccess().getGroup_1(), "rule__Compose__Group_1__0");
 					put(grammarAccess.getDefineAccess().getGroup(), "rule__Define__Group__0");
 					put(grammarAccess.getComplementoAccess().getGroup_1(), "rule__Complemento__Group_1__0");
@@ -45,6 +44,7 @@ public class T2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getComplementoAccess().getGroup_4(), "rule__Complemento__Group_4__0");
 					put(grammarAccess.getComplementoAccess().getGroup_5(), "rule__Complemento__Group_5__0");
 					put(grammarAccess.getValueAccess().getGroup_2(), "rule__Value__Group_2__0");
+					put(grammarAccess.getValueAccess().getGroup_3(), "rule__Value__Group_3__0");
 					put(grammarAccess.getModelAccess().getVarsAssignment(), "rule__Model__VarsAssignment");
 				}
 			};

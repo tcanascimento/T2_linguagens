@@ -23,10 +23,106 @@ public class T2ParsingTest {
   private ParseHelper<Model> parseHelper;
   
   @Test
+  public void validaMapLambda() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \"(map (lambda (x) (* x 2)) \'(1 2 3 4 5 6))\")");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaLambda() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \"((lambda (x) (* x x)) 3)\")");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaLambdaFatorial() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \"(define ! ");
+      _builder.newLine();
+      _builder.append("  ");
+      _builder.append("(lambda (n) ");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("(if (= n 0) ");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("1  ");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("(* n (! (- n 1)))");
+      _builder.newLine();
+      _builder.append("     ");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append("  ");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append(")\")");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void validaCondicionalIf() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("(print \"if < 1 10 \'ok\' \'nok\'\")");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      Assert.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void validaSomatorio() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(print \"(define sum ");
+      _builder.newLine();
+      _builder.append("  ");
+      _builder.append("(lambda (f lower upper)");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("(if (> lower upper)");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("0");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("(+ (f lower) (sum f (+ 1 lower) upper))");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append("  ");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append(")\")");
       _builder.newLine();
       final Model result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
