@@ -1447,29 +1447,35 @@ public class InternalT2Parser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Value__Alternatives"
-    // InternalT2.g:463:1: rule__Value__Alternatives : ( ( ruleDefine ) | ( ruleComplemento ) | ( ( rule__Value__Group_2__0 ) ) | ( ( rule__Value__Group_3__0 ) ) );
+    // InternalT2.g:463:1: rule__Value__Alternatives : ( ( ( rule__Value__DefAssignment_0 ) ) | ( ( rule__Value__CompAssignment_1 ) ) | ( ( rule__Value__Group_2__0 ) ) | ( ( rule__Value__Group_3__0 ) ) );
     public final void rule__Value__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalT2.g:467:1: ( ( ruleDefine ) | ( ruleComplemento ) | ( ( rule__Value__Group_2__0 ) ) | ( ( rule__Value__Group_3__0 ) ) )
+            // InternalT2.g:467:1: ( ( ( rule__Value__DefAssignment_0 ) ) | ( ( rule__Value__CompAssignment_1 ) ) | ( ( rule__Value__Group_2__0 ) ) | ( ( rule__Value__Group_3__0 ) ) )
             int alt6=4;
             alt6 = dfa6.predict(input);
             switch (alt6) {
                 case 1 :
-                    // InternalT2.g:468:2: ( ruleDefine )
+                    // InternalT2.g:468:2: ( ( rule__Value__DefAssignment_0 ) )
                     {
-                    // InternalT2.g:468:2: ( ruleDefine )
-                    // InternalT2.g:469:3: ruleDefine
+                    // InternalT2.g:468:2: ( ( rule__Value__DefAssignment_0 ) )
+                    // InternalT2.g:469:3: ( rule__Value__DefAssignment_0 )
                     {
-                     before(grammarAccess.getValueAccess().getDefineParserRuleCall_0()); 
+                     before(grammarAccess.getValueAccess().getDefAssignment_0()); 
+                    // InternalT2.g:470:3: ( rule__Value__DefAssignment_0 )
+                    // InternalT2.g:470:4: rule__Value__DefAssignment_0
+                    {
                     pushFollow(FOLLOW_2);
-                    ruleDefine();
+                    rule__Value__DefAssignment_0();
 
                     state._fsp--;
 
-                     after(grammarAccess.getValueAccess().getDefineParserRuleCall_0()); 
+
+                    }
+
+                     after(grammarAccess.getValueAccess().getDefAssignment_0()); 
 
                     }
 
@@ -1477,18 +1483,24 @@ public class InternalT2Parser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalT2.g:474:2: ( ruleComplemento )
+                    // InternalT2.g:474:2: ( ( rule__Value__CompAssignment_1 ) )
                     {
-                    // InternalT2.g:474:2: ( ruleComplemento )
-                    // InternalT2.g:475:3: ruleComplemento
+                    // InternalT2.g:474:2: ( ( rule__Value__CompAssignment_1 ) )
+                    // InternalT2.g:475:3: ( rule__Value__CompAssignment_1 )
                     {
-                     before(grammarAccess.getValueAccess().getComplementoParserRuleCall_1()); 
+                     before(grammarAccess.getValueAccess().getCompAssignment_1()); 
+                    // InternalT2.g:476:3: ( rule__Value__CompAssignment_1 )
+                    // InternalT2.g:476:4: rule__Value__CompAssignment_1
+                    {
                     pushFollow(FOLLOW_2);
-                    ruleComplemento();
+                    rule__Value__CompAssignment_1();
 
                     state._fsp--;
 
-                     after(grammarAccess.getValueAccess().getComplementoParserRuleCall_1()); 
+
+                    }
+
+                     after(grammarAccess.getValueAccess().getCompAssignment_1()); 
 
                     }
 
@@ -4187,6 +4199,88 @@ public class InternalT2Parser extends AbstractInternalContentAssistParser {
     }
     // $ANTLR end "rule__Model__VarsAssignment"
 
+
+    // $ANTLR start "rule__Value__DefAssignment_0"
+    // InternalT2.g:1429:1: rule__Value__DefAssignment_0 : ( ruleDefine ) ;
+    public final void rule__Value__DefAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalT2.g:1433:1: ( ( ruleDefine ) )
+            // InternalT2.g:1434:2: ( ruleDefine )
+            {
+            // InternalT2.g:1434:2: ( ruleDefine )
+            // InternalT2.g:1435:3: ruleDefine
+            {
+             before(grammarAccess.getValueAccess().getDefDefineParserRuleCall_0_0()); 
+            pushFollow(FOLLOW_2);
+            ruleDefine();
+
+            state._fsp--;
+
+             after(grammarAccess.getValueAccess().getDefDefineParserRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Value__DefAssignment_0"
+
+
+    // $ANTLR start "rule__Value__CompAssignment_1"
+    // InternalT2.g:1444:1: rule__Value__CompAssignment_1 : ( ruleComplemento ) ;
+    public final void rule__Value__CompAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalT2.g:1448:1: ( ( ruleComplemento ) )
+            // InternalT2.g:1449:2: ( ruleComplemento )
+            {
+            // InternalT2.g:1449:2: ( ruleComplemento )
+            // InternalT2.g:1450:3: ruleComplemento
+            {
+             before(grammarAccess.getValueAccess().getCompComplementoParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleComplemento();
+
+            state._fsp--;
+
+             after(grammarAccess.getValueAccess().getCompComplementoParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Value__CompAssignment_1"
+
     // Delegated rules
 
 
@@ -4195,7 +4289,7 @@ public class InternalT2Parser extends AbstractInternalContentAssistParser {
     static final String dfa_1s = "\32\uffff";
     static final String dfa_2s = "\1\4\1\uffff\1\14\1\uffff\11\4\10\6\2\uffff\1\25\2\uffff";
     static final String dfa_3s = "\1\35\1\uffff\1\34\1\uffff\11\36\10\6\2\uffff\1\36\2\uffff";
-    static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\5\21\uffff\1\3\1\2\1\uffff\1\4\1\6";
+    static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\5\21\uffff\1\3\1\2\1\uffff\1\6\1\4";
     static final String dfa_5s = "\32\uffff}>";
     static final String[] dfa_6s = {
             "\1\1\20\uffff\10\3\1\2",
@@ -4221,7 +4315,7 @@ public class InternalT2Parser extends AbstractInternalContentAssistParser {
             "\1\27",
             "",
             "",
-            "\11\31\1\30",
+            "\11\30\1\31",
             "",
             ""
     };
@@ -4293,7 +4387,7 @@ public class InternalT2Parser extends AbstractInternalContentAssistParser {
             this.transition = dfa_12;
         }
         public String getDescription() {
-            return "463:1: rule__Value__Alternatives : ( ( ruleDefine ) | ( ruleComplemento ) | ( ( rule__Value__Group_2__0 ) ) | ( ( rule__Value__Group_3__0 ) ) );";
+            return "463:1: rule__Value__Alternatives : ( ( ( rule__Value__DefAssignment_0 ) ) | ( ( rule__Value__CompAssignment_1 ) ) | ( ( rule__Value__Group_2__0 ) ) | ( ( rule__Value__Group_3__0 ) ) );";
         }
     }
  

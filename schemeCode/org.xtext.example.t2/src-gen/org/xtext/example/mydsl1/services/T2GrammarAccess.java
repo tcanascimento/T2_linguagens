@@ -323,8 +323,10 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.T2.Value");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDefineParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cComplementoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Assignment cDefAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cDefDefineParserRuleCall_0_0 = (RuleCall)cDefAssignment_0.eContents().get(0);
+		private final Assignment cCompAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cCompComplementoParserRuleCall_1_0 = (RuleCall)cCompAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final RuleCall cOpParserRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final RuleCall cComplementoParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
@@ -334,17 +336,23 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cComplementoParserRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		
 		//Value:
-		//	Define | Complemento | Op Complemento | Condicional Complemento Complemento;
+		//	def=Define | comp=Complemento | Op Complemento | Condicional Complemento Complemento;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Define | Complemento | Op Complemento | Condicional Complemento Complemento
+		//def=Define | comp=Complemento | Op Complemento | Condicional Complemento Complemento
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//def=Define
+		public Assignment getDefAssignment_0() { return cDefAssignment_0; }
+		
 		//Define
-		public RuleCall getDefineParserRuleCall_0() { return cDefineParserRuleCall_0; }
+		public RuleCall getDefDefineParserRuleCall_0_0() { return cDefDefineParserRuleCall_0_0; }
+		
+		//comp=Complemento
+		public Assignment getCompAssignment_1() { return cCompAssignment_1; }
 		
 		//Complemento
-		public RuleCall getComplementoParserRuleCall_1() { return cComplementoParserRuleCall_1; }
+		public RuleCall getCompComplementoParserRuleCall_1_0() { return cCompComplementoParserRuleCall_1_0; }
 		
 		//Op Complemento
 		public Group getGroup_2() { return cGroup_2; }
@@ -509,7 +517,7 @@ public class T2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Value:
-	//	Define | Complemento | Op Complemento | Condicional Complemento Complemento;
+	//	def=Define | comp=Complemento | Op Complemento | Condicional Complemento Complemento;
 	public ValueElements getValueAccess() {
 		return pValue;
 	}

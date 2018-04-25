@@ -5,16 +5,21 @@ package org.xtext.example.mydsl1.t2.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl1.t2.Model;
 import org.xtext.example.mydsl1.t2.T2Package;
+import org.xtext.example.mydsl1.t2.VAR;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,14 +37,14 @@ import org.xtext.example.mydsl1.t2.T2Package;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getVars() <em>Vars</em>}' attribute list.
+   * The cached value of the '{@link #getVars() <em>Vars</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVars()
    * @generated
    * @ordered
    */
-  protected EList<String> vars;
+  protected EList<VAR> vars;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,13 +72,29 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getVars()
+  public EList<VAR> getVars()
   {
     if (vars == null)
     {
-      vars = new EDataTypeEList<String>(String.class, this, T2Package.MODEL__VARS);
+      vars = new EObjectContainmentEList<VAR>(VAR.class, this, T2Package.MODEL__VARS);
     }
     return vars;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case T2Package.MODEL__VARS:
+        return ((InternalEList<?>)getVars()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -105,7 +126,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case T2Package.MODEL__VARS:
         getVars().clear();
-        getVars().addAll((Collection<? extends String>)newValue);
+        getVars().addAll((Collection<? extends VAR>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,23 +163,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return vars != null && !vars.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (vars: ");
-    result.append(vars);
-    result.append(')');
-    return result.toString();
   }
 
 } //ModelImpl

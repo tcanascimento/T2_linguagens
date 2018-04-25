@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl1.t2.Value
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +17,19 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class T2Generator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('T3_Linguagens.java', resource.start)
 	}
+	
+	def CharSequence start(Resource resource) '''
+		public class T3_Linguagens {
+
+			public static void main(String [] args){
+			«FOR e: resource.allContents.toIterable.filter(Value)»
+			                «IF e.comp != null»
+			                System.out.pritnln(«e.comp»)
+			                «ENDIF»
+			«ENDFOR»
+		}
+	'''
+	
 }

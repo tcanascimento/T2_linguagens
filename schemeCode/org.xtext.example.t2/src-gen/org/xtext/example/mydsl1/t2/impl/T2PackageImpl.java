@@ -6,12 +6,14 @@ package org.xtext.example.mydsl1.t2.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.mydsl1.t2.Model;
 import org.xtext.example.mydsl1.t2.T2Factory;
 import org.xtext.example.mydsl1.t2.T2Package;
+import org.xtext.example.mydsl1.t2.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +29,20 @@ public class T2PackageImpl extends EPackageImpl implements T2Package
    * @generated
    */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass valueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -106,9 +122,49 @@ public class T2PackageImpl extends EPackageImpl implements T2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModel_Vars()
+  public EReference getModel_Vars()
   {
-    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getValue()
+  {
+    return valueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getValue_Def()
+  {
+    return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getValue_Comp()
+  {
+    return (EAttribute)valueEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVAR()
+  {
+    return varEClass;
   }
 
   /**
@@ -142,7 +198,13 @@ public class T2PackageImpl extends EPackageImpl implements T2Package
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEAttribute(modelEClass, MODEL__VARS);
+    createEReference(modelEClass, MODEL__VARS);
+
+    valueEClass = createEClass(VALUE);
+    createEAttribute(valueEClass, VALUE__DEF);
+    createEAttribute(valueEClass, VALUE__COMP);
+
+    varEClass = createEClass(VAR);
   }
 
   /**
@@ -174,10 +236,17 @@ public class T2PackageImpl extends EPackageImpl implements T2Package
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    valueEClass.getESuperTypes().add(this.getVAR());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModel_Vars(), ecorePackage.getEString(), "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Vars(), this.getVAR(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getValue_Def(), ecorePackage.getEString(), "def", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getValue_Comp(), ecorePackage.getEString(), "comp", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varEClass, org.xtext.example.mydsl1.t2.VAR.class, "VAR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

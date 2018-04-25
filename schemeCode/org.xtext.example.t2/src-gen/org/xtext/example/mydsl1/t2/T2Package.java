@@ -6,6 +6,7 @@ package org.xtext.example.mydsl1.t2;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,7 +68,7 @@ public interface T2Package extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Vars</b></em>' attribute list.
+   * The feature id for the '<em><b>Vars</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -84,6 +85,62 @@ public interface T2Package extends EPackage
    */
   int MODEL_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl1.t2.impl.VARImpl <em>VAR</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl1.t2.impl.VARImpl
+   * @see org.xtext.example.mydsl1.t2.impl.T2PackageImpl#getVAR()
+   * @generated
+   */
+  int VAR = 2;
+
+  /**
+   * The number of structural features of the '<em>VAR</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl1.t2.impl.ValueImpl <em>Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl1.t2.impl.ValueImpl
+   * @see org.xtext.example.mydsl1.t2.impl.T2PackageImpl#getValue()
+   * @generated
+   */
+  int VALUE = 1;
+
+  /**
+   * The feature id for the '<em><b>Def</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE__DEF = VAR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Comp</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE__COMP = VAR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_FEATURE_COUNT = VAR_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.t2.Model <em>Model</em>}'.
@@ -96,15 +153,57 @@ public interface T2Package extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl1.t2.Model#getVars <em>Vars</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl1.t2.Model#getVars <em>Vars</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Vars</em>'.
+   * @return the meta object for the containment reference list '<em>Vars</em>'.
    * @see org.xtext.example.mydsl1.t2.Model#getVars()
    * @see #getModel()
    * @generated
    */
-  EAttribute getModel_Vars();
+  EReference getModel_Vars();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl1.t2.Value <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value</em>'.
+   * @see org.xtext.example.mydsl1.t2.Value
+   * @generated
+   */
+  EClass getValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl1.t2.Value#getDef <em>Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Def</em>'.
+   * @see org.xtext.example.mydsl1.t2.Value#getDef()
+   * @see #getValue()
+   * @generated
+   */
+  EAttribute getValue_Def();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl1.t2.Value#getComp <em>Comp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Comp</em>'.
+   * @see org.xtext.example.mydsl1.t2.Value#getComp()
+   * @see #getValue()
+   * @generated
+   */
+  EAttribute getValue_Comp();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl1.t2.VAR <em>VAR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>VAR</em>'.
+   * @see org.xtext.example.mydsl1.t2.VAR
+   * @generated
+   */
+  EClass getVAR();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -140,12 +239,48 @@ public interface T2Package extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Vars</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Vars</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__VARS = eINSTANCE.getModel_Vars();
+    EReference MODEL__VARS = eINSTANCE.getModel_Vars();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl1.t2.impl.ValueImpl <em>Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl1.t2.impl.ValueImpl
+     * @see org.xtext.example.mydsl1.t2.impl.T2PackageImpl#getValue()
+     * @generated
+     */
+    EClass VALUE = eINSTANCE.getValue();
+
+    /**
+     * The meta object literal for the '<em><b>Def</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VALUE__DEF = eINSTANCE.getValue_Def();
+
+    /**
+     * The meta object literal for the '<em><b>Comp</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VALUE__COMP = eINSTANCE.getValue_Comp();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl1.t2.impl.VARImpl <em>VAR</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl1.t2.impl.VARImpl
+     * @see org.xtext.example.mydsl1.t2.impl.T2PackageImpl#getVAR()
+     * @generated
+     */
+    EClass VAR = eINSTANCE.getVAR();
 
   }
 

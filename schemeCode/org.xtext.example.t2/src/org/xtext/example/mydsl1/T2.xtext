@@ -30,7 +30,7 @@ Complemento:
 ;
 
 Value: 
-	Define | Complemento | Op Complemento | Condicional Complemento Complemento
+	def=Define | comp=Complemento | Op Complemento | Condicional Complemento Complemento
 ;
 
 VAR:

@@ -132,7 +132,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
-        AntlrDatatypeRuleToken lv_vars_0_0 = null;
+        EObject lv_vars_0_0 = null;
 
 
 
@@ -1363,15 +1363,15 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValue"
-    // InternalT2.g:560:1: entryRuleValue returns [String current=null] : iv_ruleValue= ruleValue EOF ;
-    public final String entryRuleValue() throws RecognitionException {
-        String current = null;
+    // InternalT2.g:560:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
+    public final EObject entryRuleValue() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleValue = null;
+        EObject iv_ruleValue = null;
 
 
         try {
-            // InternalT2.g:560:45: (iv_ruleValue= ruleValue EOF )
+            // InternalT2.g:560:46: (iv_ruleValue= ruleValue EOF )
             // InternalT2.g:561:2: iv_ruleValue= ruleValue EOF
             {
              newCompositeNode(grammarAccess.getValueRule()); 
@@ -1380,7 +1380,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
             state._fsp--;
 
-             current =iv_ruleValue.getText(); 
+             current =iv_ruleValue; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1399,93 +1399,114 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValue"
-    // InternalT2.g:567:1: ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) | (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento ) ) ;
-    public final AntlrDatatypeRuleToken ruleValue() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // InternalT2.g:567:1: ruleValue returns [EObject current=null] : ( ( (lv_def_0_0= ruleDefine ) ) | ( (lv_comp_1_0= ruleComplemento ) ) | ( ruleOp ruleComplemento ) | ( ruleCondicional ruleComplemento ruleComplemento ) ) ;
+    public final EObject ruleValue() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken this_Define_0 = null;
+        AntlrDatatypeRuleToken lv_def_0_0 = null;
 
-        AntlrDatatypeRuleToken this_Complemento_1 = null;
-
-        AntlrDatatypeRuleToken this_Op_2 = null;
-
-        AntlrDatatypeRuleToken this_Complemento_3 = null;
-
-        AntlrDatatypeRuleToken this_Condicional_4 = null;
-
-        AntlrDatatypeRuleToken this_Complemento_5 = null;
-
-        AntlrDatatypeRuleToken this_Complemento_6 = null;
+        AntlrDatatypeRuleToken lv_comp_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalT2.g:573:2: ( (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) | (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento ) ) )
-            // InternalT2.g:574:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) | (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento ) )
+            // InternalT2.g:573:2: ( ( ( (lv_def_0_0= ruleDefine ) ) | ( (lv_comp_1_0= ruleComplemento ) ) | ( ruleOp ruleComplemento ) | ( ruleCondicional ruleComplemento ruleComplemento ) ) )
+            // InternalT2.g:574:2: ( ( (lv_def_0_0= ruleDefine ) ) | ( (lv_comp_1_0= ruleComplemento ) ) | ( ruleOp ruleComplemento ) | ( ruleCondicional ruleComplemento ruleComplemento ) )
             {
-            // InternalT2.g:574:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) | (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento ) )
+            // InternalT2.g:574:2: ( ( (lv_def_0_0= ruleDefine ) ) | ( (lv_comp_1_0= ruleComplemento ) ) | ( ruleOp ruleComplemento ) | ( ruleCondicional ruleComplemento ruleComplemento ) )
             int alt7=4;
             alt7 = dfa7.predict(input);
             switch (alt7) {
                 case 1 :
-                    // InternalT2.g:575:3: this_Define_0= ruleDefine
+                    // InternalT2.g:575:3: ( (lv_def_0_0= ruleDefine ) )
+                    {
+                    // InternalT2.g:575:3: ( (lv_def_0_0= ruleDefine ) )
+                    // InternalT2.g:576:4: (lv_def_0_0= ruleDefine )
+                    {
+                    // InternalT2.g:576:4: (lv_def_0_0= ruleDefine )
+                    // InternalT2.g:577:5: lv_def_0_0= ruleDefine
                     {
 
-                    			newCompositeNode(grammarAccess.getValueAccess().getDefineParserRuleCall_0());
-                    		
+                    					newCompositeNode(grammarAccess.getValueAccess().getDefDefineParserRuleCall_0_0());
+                    				
                     pushFollow(FOLLOW_2);
-                    this_Define_0=ruleDefine();
+                    lv_def_0_0=ruleDefine();
 
                     state._fsp--;
 
 
-                    			current.merge(this_Define_0);
-                    		
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getValueRule());
+                    					}
+                    					set(
+                    						current,
+                    						"def",
+                    						lv_def_0_0,
+                    						"org.xtext.example.mydsl1.T2.Define");
+                    					afterParserOrEnumRuleCall();
+                    				
 
-                    			afterParserOrEnumRuleCall();
-                    		
+                    }
+
+
+                    }
+
 
                     }
                     break;
                 case 2 :
-                    // InternalT2.g:586:3: this_Complemento_1= ruleComplemento
+                    // InternalT2.g:595:3: ( (lv_comp_1_0= ruleComplemento ) )
+                    {
+                    // InternalT2.g:595:3: ( (lv_comp_1_0= ruleComplemento ) )
+                    // InternalT2.g:596:4: (lv_comp_1_0= ruleComplemento )
+                    {
+                    // InternalT2.g:596:4: (lv_comp_1_0= ruleComplemento )
+                    // InternalT2.g:597:5: lv_comp_1_0= ruleComplemento
                     {
 
-                    			newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_1());
-                    		
+                    					newCompositeNode(grammarAccess.getValueAccess().getCompComplementoParserRuleCall_1_0());
+                    				
                     pushFollow(FOLLOW_2);
-                    this_Complemento_1=ruleComplemento();
+                    lv_comp_1_0=ruleComplemento();
 
                     state._fsp--;
 
 
-                    			current.merge(this_Complemento_1);
-                    		
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getValueRule());
+                    					}
+                    					set(
+                    						current,
+                    						"comp",
+                    						lv_comp_1_0,
+                    						"org.xtext.example.mydsl1.T2.Complemento");
+                    					afterParserOrEnumRuleCall();
+                    				
 
-                    			afterParserOrEnumRuleCall();
-                    		
+                    }
+
+
+                    }
+
 
                     }
                     break;
                 case 3 :
-                    // InternalT2.g:597:3: (this_Op_2= ruleOp this_Complemento_3= ruleComplemento )
+                    // InternalT2.g:615:3: ( ruleOp ruleComplemento )
                     {
-                    // InternalT2.g:597:3: (this_Op_2= ruleOp this_Complemento_3= ruleComplemento )
-                    // InternalT2.g:598:4: this_Op_2= ruleOp this_Complemento_3= ruleComplemento
+                    // InternalT2.g:615:3: ( ruleOp ruleComplemento )
+                    // InternalT2.g:616:4: ruleOp ruleComplemento
                     {
 
                     				newCompositeNode(grammarAccess.getValueAccess().getOpParserRuleCall_2_0());
                     			
                     pushFollow(FOLLOW_7);
-                    this_Op_2=ruleOp();
+                    ruleOp();
 
                     state._fsp--;
 
-
-                    				current.merge(this_Op_2);
-                    			
 
                     				afterParserOrEnumRuleCall();
                     			
@@ -1493,13 +1514,10 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
                     				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_2_1());
                     			
                     pushFollow(FOLLOW_2);
-                    this_Complemento_3=ruleComplemento();
+                    ruleComplemento();
 
                     state._fsp--;
 
-
-                    				current.merge(this_Complemento_3);
-                    			
 
                     				afterParserOrEnumRuleCall();
                     			
@@ -1510,22 +1528,19 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalT2.g:620:3: (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento )
+                    // InternalT2.g:632:3: ( ruleCondicional ruleComplemento ruleComplemento )
                     {
-                    // InternalT2.g:620:3: (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento )
-                    // InternalT2.g:621:4: this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento
+                    // InternalT2.g:632:3: ( ruleCondicional ruleComplemento ruleComplemento )
+                    // InternalT2.g:633:4: ruleCondicional ruleComplemento ruleComplemento
                     {
 
                     				newCompositeNode(grammarAccess.getValueAccess().getCondicionalParserRuleCall_3_0());
                     			
                     pushFollow(FOLLOW_7);
-                    this_Condicional_4=ruleCondicional();
+                    ruleCondicional();
 
                     state._fsp--;
 
-
-                    				current.merge(this_Condicional_4);
-                    			
 
                     				afterParserOrEnumRuleCall();
                     			
@@ -1533,13 +1548,10 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
                     				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_3_1());
                     			
                     pushFollow(FOLLOW_7);
-                    this_Complemento_5=ruleComplemento();
+                    ruleComplemento();
 
                     state._fsp--;
 
-
-                    				current.merge(this_Complemento_5);
-                    			
 
                     				afterParserOrEnumRuleCall();
                     			
@@ -1547,13 +1559,10 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
                     				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_3_2());
                     			
                     pushFollow(FOLLOW_2);
-                    this_Complemento_6=ruleComplemento();
+                    ruleComplemento();
 
                     state._fsp--;
 
-
-                    				current.merge(this_Complemento_6);
-                    			
 
                     				afterParserOrEnumRuleCall();
                     			
@@ -1586,16 +1595,16 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVAR"
-    // InternalT2.g:656:1: entryRuleVAR returns [String current=null] : iv_ruleVAR= ruleVAR EOF ;
-    public final String entryRuleVAR() throws RecognitionException {
-        String current = null;
+    // InternalT2.g:659:1: entryRuleVAR returns [EObject current=null] : iv_ruleVAR= ruleVAR EOF ;
+    public final EObject entryRuleVAR() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleVAR = null;
+        EObject iv_ruleVAR = null;
 
 
         try {
-            // InternalT2.g:656:43: (iv_ruleVAR= ruleVAR EOF )
-            // InternalT2.g:657:2: iv_ruleVAR= ruleVAR EOF
+            // InternalT2.g:659:44: (iv_ruleVAR= ruleVAR EOF )
+            // InternalT2.g:660:2: iv_ruleVAR= ruleVAR EOF
             {
              newCompositeNode(grammarAccess.getVARRule()); 
             pushFollow(FOLLOW_1);
@@ -1603,7 +1612,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
             state._fsp--;
 
-             current =iv_ruleVAR.getText(); 
+             current =iv_ruleVAR; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1622,19 +1631,19 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVAR"
-    // InternalT2.g:663:1: ruleVAR returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_Value_0= ruleValue ;
-    public final AntlrDatatypeRuleToken ruleVAR() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // InternalT2.g:666:1: ruleVAR returns [EObject current=null] : this_Value_0= ruleValue ;
+    public final EObject ruleVAR() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken this_Value_0 = null;
+        EObject this_Value_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalT2.g:669:2: (this_Value_0= ruleValue )
-            // InternalT2.g:670:2: this_Value_0= ruleValue
+            // InternalT2.g:672:2: (this_Value_0= ruleValue )
+            // InternalT2.g:673:2: this_Value_0= ruleValue
             {
 
             		newCompositeNode(grammarAccess.getVARAccess().getValueParserRuleCall());
@@ -1645,9 +1654,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
             state._fsp--;
 
 
-            		current.merge(this_Value_0);
-            	
-
+            		current = this_Value_0;
             		afterParserOrEnumRuleCall();
             	
 
@@ -1774,7 +1781,7 @@ public class InternalT2Parser extends AbstractInternalAntlrParser {
             this.transition = dfa_12;
         }
         public String getDescription() {
-            return "574:2: (this_Define_0= ruleDefine | this_Complemento_1= ruleComplemento | (this_Op_2= ruleOp this_Complemento_3= ruleComplemento ) | (this_Condicional_4= ruleCondicional this_Complemento_5= ruleComplemento this_Complemento_6= ruleComplemento ) )";
+            return "574:2: ( ( (lv_def_0_0= ruleDefine ) ) | ( (lv_comp_1_0= ruleComplemento ) ) | ( ruleOp ruleComplemento ) | ( ruleCondicional ruleComplemento ruleComplemento ) )";
         }
     }
  

@@ -7,7 +7,12 @@
   <genPackages prefix="T2" basePackage="org.xtext.example.mydsl1" disposableProviderFactory="true"
       fileExtensions="mydsl1" ecorePackage="T2.ecore#/">
     <genClasses ecoreClass="T2.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute T2.ecore#//Model/vars"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference T2.ecore#//Model/vars"/>
     </genClasses>
+    <genClasses ecoreClass="T2.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute T2.ecore#//Value/def"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute T2.ecore#//Value/comp"/>
+    </genClasses>
+    <genClasses ecoreClass="T2.ecore#//VAR"/>
   </genPackages>
 </genmodel:GenModel>

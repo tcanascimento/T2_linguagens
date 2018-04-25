@@ -66,6 +66,8 @@ public class T2FactoryImpl extends EFactoryImpl implements T2Factory
     switch (eClass.getClassifierID())
     {
       case T2Package.MODEL: return createModel();
+      case T2Package.VALUE: return createValue();
+      case T2Package.VAR: return createVAR();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -80,6 +82,28 @@ public class T2FactoryImpl extends EFactoryImpl implements T2Factory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Value createValue()
+  {
+    ValueImpl value = new ValueImpl();
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VAR createVAR()
+  {
+    VARImpl var = new VARImpl();
+    return var;
   }
 
   /**

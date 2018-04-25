@@ -557,14 +557,14 @@ ruleComplemento returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTok
 ;
 
 // Entry rule entryRuleValue
-entryRuleValue returns [String current=null]:
+entryRuleValue returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getValueRule()); }
 	iv_ruleValue=ruleValue
-	{ $current=$iv_ruleValue.current.getText(); }
+	{ $current=$iv_ruleValue.current; }
 	EOF;
 
 // Rule Value
-ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleValue returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -572,46 +572,58 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getValueAccess().getDefineParserRuleCall_0());
-		}
-		this_Define_0=ruleDefine
-		{
-			$current.merge(this_Define_0);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getValueAccess().getDefDefineParserRuleCall_0_0());
+				}
+				lv_def_0_0=ruleDefine
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getValueRule());
+					}
+					set(
+						$current,
+						"def",
+						lv_def_0_0,
+						"org.xtext.example.mydsl1.T2.Define");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_1());
-		}
-		this_Complemento_1=ruleComplemento
-		{
-			$current.merge(this_Complemento_1);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getValueAccess().getCompComplementoParserRuleCall_1_0());
+				}
+				lv_comp_1_0=ruleComplemento
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getValueRule());
+					}
+					set(
+						$current,
+						"comp",
+						lv_comp_1_0,
+						"org.xtext.example.mydsl1.T2.Complemento");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
 		(
 			{
 				newCompositeNode(grammarAccess.getValueAccess().getOpParserRuleCall_2_0());
 			}
-			this_Op_2=ruleOp
-			{
-				$current.merge(this_Op_2);
-			}
+			ruleOp
 			{
 				afterParserOrEnumRuleCall();
 			}
 			{
 				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_2_1());
 			}
-			this_Complemento_3=ruleComplemento
-			{
-				$current.merge(this_Complemento_3);
-			}
+			ruleComplemento
 			{
 				afterParserOrEnumRuleCall();
 			}
@@ -621,30 +633,21 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			{
 				newCompositeNode(grammarAccess.getValueAccess().getCondicionalParserRuleCall_3_0());
 			}
-			this_Condicional_4=ruleCondicional
-			{
-				$current.merge(this_Condicional_4);
-			}
+			ruleCondicional
 			{
 				afterParserOrEnumRuleCall();
 			}
 			{
 				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_3_1());
 			}
-			this_Complemento_5=ruleComplemento
-			{
-				$current.merge(this_Complemento_5);
-			}
+			ruleComplemento
 			{
 				afterParserOrEnumRuleCall();
 			}
 			{
 				newCompositeNode(grammarAccess.getValueAccess().getComplementoParserRuleCall_3_2());
 			}
-			this_Complemento_6=ruleComplemento
-			{
-				$current.merge(this_Complemento_6);
-			}
+			ruleComplemento
 			{
 				afterParserOrEnumRuleCall();
 			}
@@ -653,14 +656,14 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 ;
 
 // Entry rule entryRuleVAR
-entryRuleVAR returns [String current=null]:
+entryRuleVAR returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getVARRule()); }
 	iv_ruleVAR=ruleVAR
-	{ $current=$iv_ruleVAR.current.getText(); }
+	{ $current=$iv_ruleVAR.current; }
 	EOF;
 
 // Rule VAR
-ruleVAR returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleVAR returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -672,9 +675,7 @@ ruleVAR returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	}
 	this_Value_0=ruleValue
 	{
-		$current.merge(this_Value_0);
-	}
-	{
+		$current = $this_Value_0.current;
 		afterParserOrEnumRuleCall();
 	}
 ;

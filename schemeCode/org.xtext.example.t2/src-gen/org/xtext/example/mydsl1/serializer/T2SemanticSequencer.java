@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.xtext.example.mydsl1.services.T2GrammarAccess;
 import org.xtext.example.mydsl1.t2.Model;
 import org.xtext.example.mydsl1.t2.T2Package;
+import org.xtext.example.mydsl1.t2.Value;
 
 @SuppressWarnings("all")
 public class T2SemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -33,6 +34,9 @@ public class T2SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case T2Package.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case T2Package.VALUE:
+				sequence_Value(context, (Value) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -46,6 +50,19 @@ public class T2SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     vars+=VAR+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns Value
+	 *     VAR returns Value
+	 *
+	 * Constraint:
+	 *     (def=Define | comp=Complemento)
+	 */
+	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
