@@ -10,7 +10,7 @@ Op:
 ;
 
 Condicional:
-	'if' 
+	if='if' 
 ;
 
 Prefix:
@@ -29,8 +29,16 @@ Complemento:
 	INT | '(' Op INT*')' | '(' Op ID INT')' | '(' Prefix STRING ')'| Prefix STRING | '(' Prefix STRING Compose STRING ')'
 ;
 
+OpComp:
+	Op Complemento
+;
+
+CondCompComp:
+	Condicional Complemento Complemento
+;
+
 Value: 
-	def=Define | comp=Complemento | Op Complemento | Condicional Complemento Complemento
+	def=Define | comp=Complemento | OpC=OpComp | CCompComp=CondCompComp
 ;
 
 VAR:
